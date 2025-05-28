@@ -15,3 +15,7 @@ O que foi feito no Projeto :
 ✅ Configuração do MySQL no application.properties
 
 ✅ README completo com instruções de execução
+
+
+
+Grupo : Gabriel Farias, João Victor Barreto , Pedro Galvão , Hermes Adiel
