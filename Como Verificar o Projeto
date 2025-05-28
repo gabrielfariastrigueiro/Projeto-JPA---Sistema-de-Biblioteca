@@ -1,0 +1,44 @@
+1-Clone o repositório:
+
+bash
+
+git clone https://github.com/seu-usuario/biblioteca-jpa.git
+
+2- Configure o banco de dados:
+
+Crie um schema biblioteca no MySQL.
+
+Atualize application.properties com suas credenciais.
+
+3- Execute o projeto:
+
+bash
+
+mvn spring-boot:run
+
+4-Teste os endpoints:
+
+*Cadastrar livro:
+
+bash
+
+POST /livros
+Body (JSON):
+{
+  "titulo": "Dom Casmurro",
+  "autor": "Machado de Assis",
+  "anoPublicacao": 1899,
+  "disponivel": true
+}
+
+*Listar livros:
+
+bash
+
+GET /livros
+
+*Deletar livro:
+
+bash
+
+DELETE /livros/1
