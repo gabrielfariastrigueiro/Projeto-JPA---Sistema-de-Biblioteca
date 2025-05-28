@@ -1,0 +1,59 @@
+    (Destaques)
+
+1. Entidade JPA (Livro.java)
+
+java
+
+@Entity
+@Data
+public class Livro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false)
+    private String titulo;
+    
+    @Column(nullable = false)
+    private String autor;
+    
+    private Integer anoPublicacao;
+    
+    private Boolean disponivel;
+    
+    @Column(updatable = false)
+    private LocalDate dataCadastro;
+}
+
+2. Controller REST (LivroController.java)
+
+java
+
+@RestController
+@RequestMapping("/livros")
+public class LivroController {
+    private final LivroService service;
+
+    @GetMapping
+    public List<Livro> listar() {
+        return service.listarTodos();
+    }
+
+    @PostMapping
+    public Livro cadastrar(@RequestBody Livro livro) {
+        return service.salvar(livro);
+    }
+
+    @DeleteMapping("/{id}")
+    public void remover(@PathVariable Long id) {
+        service.deletar(id);
+    }
+}
+3. Configuração do Banco (application.properties)
+
+Propriedades
+
+spring.datasource.url=jdbc:mysql://localhost:3306/biblioteca
+spring.datasource.username=root
+spring.datasource.password=senha123
+spring.jpa.hibernate.ddl-auto=update
